@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import SimpleComponent from './components/SimpleComponent';
-
+import './App.css';
+import HeaderMy from './components/HeaderMy';
+import MainMy from './components/MainMy';
+import FooterMy from './components/FooterMy';
 class App extends Component {
-
   render() {
     return (
-      <div>
-        <SimpleComponent />
+      <div className="page-wrapper">
+        <HeaderMy />
+        <MainMy />
+        <FooterMy />
       </div>
-    )
+    );
   }
 }
 
