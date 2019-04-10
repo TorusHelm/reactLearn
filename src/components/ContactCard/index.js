@@ -1,27 +1,18 @@
 import React from 'react';
+import {Card} from 'react-bootstrap';
 
 function ContactsCard(props) {
 
-    console.log(props)
-    let style = {
-        height: "400px", 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'space-between'
-    }
-
     return (
-        <div className="contact-card">
-            <div className="card-header">
-                <img align="center" src={props.contacts.imgUrl} alt="" />
-            </div>
-            <div className="card-body" style={style}>
-                <h3><font color="#3AC1EF">{props.contacts.name}</font></h3>
-                <h4><font color="#3AC1EF">{props.contacts.punch}</font></h4>
-            </div>
-            <p>Phone: {props.contacts.phone}</p>
-            <p>Email: {props.contacts.mail}</p>
-        </div>
+        <Card className="">
+            <Card.Img style={{height: '200px', width: 'auto'}} variant="top" src={props.contacts.imgUrl} />
+            <Card.Body>
+                <Card.Title>{props.contacts.name}</Card.Title>
+                <Card.Subtitle>{props.contacts.punch}</Card.Subtitle>
+                <Card.Link href="#">Phone: {props.contacts.phone}</Card.Link>
+                <Card.Link className="d-block ml-0" href="#">Email: {props.contacts.mail}</Card.Link>
+            </Card.Body>
+        </Card>
     )
 }
 

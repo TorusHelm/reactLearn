@@ -24,3 +24,21 @@ body {
 .contact-card > p {
   font-size: 12px;
 }
+
+html, body, #root, .page-wrapper {
+  height: 100%;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header, footer {
+  flex: 0 0;
+}
+
+main {
+  flex: 1 0;
+}
