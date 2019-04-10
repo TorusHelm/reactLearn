@@ -1,59 +1,55 @@
-import React, {Component} from "react"
-import ContactsCard from "./components/ContactCard";
-import HeaderMy from "./components/HeaderMy";
-import FooterMy from "./components/FooterMy";
+import React from "react"
 
-class App extends Component {
-    
+class App extends React.Component {
+
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+    }
+
+    handlerClickUp = () => {
+        this.setState((prevState) => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+    }
+
+    handlerClickUp10 = () => {
+        this.setState((prevState) => {
+            return {
+                count: prevState.count + 10
+            }
+        })
+    }
+
+    handlerClickDown = () => {
+        // let count = this.state.count
+        this.setState((prevState) => {
+            return {
+                count: prevState.count > 0 ? prevState.count -1 : prevState.count = 0
+            }
+        })
+    }
+
+    handlerClickDown10 = () => {
+        this.setState((prevState) => {
+            return {
+                count: prevState.count >= 10 ? prevState.count -10 : prevState.count = 0
+            }
+        })
+    }
+
     render() {
-
         return (
-            <div className="page-wrapper">
-                <HeaderMy />
-                <main className="contacts container">
-                
-                    <ContactsCard
-                        contacts = {{
-                            // name : "Mr. Whaskerson",
-                            imgUrl : "http://placekitten.com/300/200",
-                            phone : "(212) 555-1234",
-                            mail : "mr.whiskaz@catnap.meow",
-                            punch : "testPunch"
-                        }}
-                    />
-    
-                    <ContactsCard
-                        contacts = {{
-                            name : "Fluffykins",
-                            imgUrl : "http://placekitten.com/400/200",
-                            phone : "(212) 555-2345",
-                            mail : "fluff@me.com",
-                            punch : "testPunch"
-                        }}
-                    />
-    
-                    <ContactsCard
-                        contacts = {{
-                            name : "Destroyer",
-                            imgUrl : "http://placekitten.com/400/300",
-                            phone : "(212) 555-3456",
-                            mail : "ofworlds@yahoo.com",
-                            punch : "testPunch"
-                        }}
-                    />
-    
-                    <ContactsCard
-                        contacts = {{
-                            name : "Felix",
-                            imgUrl : "http://placekitten.com/200/100",
-                            phone : "(212) 555-4567",
-                            mail : "thecat@hotmail.com",
-                            punch : "testPunch"
-                        }}
-                    />
-    
-                </main>
-                <FooterMy />
+            <div>
+                <h1>{this.state.count}</h1>
+                <button onClick={this.handlerClickUp}>Change Up!</button>
+                <button onClick={this.handlerClickDown}>Change Down!</button>
+                <button onClick={this.handlerClickUp10}>Change Up 10!</button>
+                <button onClick={this.handlerClickDown10}>Change Down 10!</button>
             </div>
         )
     }
