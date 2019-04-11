@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 class ButtonMy extends React.Component {
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
+        // console.log(nextProps)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
