@@ -6,60 +6,91 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            firstName: false,
-            lastName: false,
+            firstName: '',
+            lastName: '',
             logged: false
         }
     }
 
     submitted = () => {
-        if(!this.state.logged) {
-            this.setState({
-                logged: true
-            })
-            alert('Вы вошли как: ' + this.state.firstName + ' ' + this.state.lastName)
-        }
+        !this.state.logged && this.setState({ logged: true })
     }
 
     handleSubmit = (e) => {
-        (this.state.firstName) && (this.state.lastName) ? this.submitted() : alert('Заполните оба поля')
         e.preventDefault()
+        const {firstName, lastName} = this.state
+        firstName && lastName ? this.submitted() : alert('Заполните оба поля')
     }
 
     handleSetName = (e) => {
+        const {name, value} = e.target
         this.setState({
-            [e.target.name]: e.target.value
+            [name]: value
         })
     }
 
-    handleEnter = () => {
-        this.state.logged && this.setState({ logged: false })
+    logOut = () => {
+        this.setState({ 
+            logged: false, 
+            firstName: '',
+            lastName: ''
+        })
+    }
+
+    handlerLogOut = () => {
+        this.state.logged && this.logOut()
+    }
+
+    isLogInMarkup = () => {
+        return(
+            <form onSubmit={this.handleSubmit}>
+                <div>
+                    <label>
+                        Имя
+                        <input 
+                            required 
+                            value={this.state.firstName} 
+                            name="firstName" 
+                            className="d-block" 
+                            type="text" 
+                            onChange={this.handleSetName} 
+                            placeholder="Введите ваше имя" 
+                        />
+                    </label>
+                    <label>
+                        Фамилия
+                        <input 
+                            required 
+                            value={this.state.lastName} 
+                            name="lastName" 
+                            className="d-block" 
+                            type="text" 
+                            onChange={this.handleSetName} 
+                            placeholder="Введите вашу фамилию" 
+                        />
+                    </label>
+                    <button type="submit">Войти</button>
+                </div>
+            </form>
+        )
+    }
+
+    isLogOutMarkup = () => {
+        return (
+            <form className="logNameStyle" onSubmit={this.handlerLogOut}>
+                <h4> <span>Вы вошли как</span>{this.state.firstName + ' ' + this.state.lastName}</h4>
+                <button type="submit">Выйти</button>
+            </form>
+        )
     }
 
     render() {
+        const {logged} = this.state;
+
         return (
             <div>
-                {!this.state.logged && 
-                    <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <label>
-                                Имя
-                                <input required name="firstName" className="d-block" type="text" onChange={this.handleSetName} placeholder="Введите ваше имя" />
-                            </label>
-                            <label>
-                                Фамилия
-                                <input required name="lastName" className="d-block" type="text" onChange={this.handleSetName} placeholder="Введите вашу фамилию" />
-                            </label>
-                            <button type="submit">Войти</button>
-                        </div>
-                    </form>
-                }
-                {this.state.logged &&
-                    <form className="logNameStyle" onSubmit={this.handleSubmit}>
-                        <h4> {this.state.firstName + ' ' + this.state.lastName}</h4>
-                        <button type="submit" onClick={this.handleEnter}>Выйти</button>
-                    </form>
-                }
+                {!logged && this.isLogInMarkup()}
+                {logged && this.isLogOutMarkup()}
             </div>
         )
     }
