@@ -1,0 +1,45 @@
+.logNameStyle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    width: 100%;
+    text-align: right;
+    background: lightblue;
+
+    h4 {
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    button {
+        margin-top: 10px;
+        float: right;
+        background-color: lightcoral;
+        color: black;
+        border-color: black;
+        width: auto;
+        font-weight: 500;
+    }
+}
+
+form {
+    padding: 24px;
+    background-color: lightcoral;
+}
+
+input {
+    padding: 6px 24px;
+}
+
+label {
+    color: white;
+    margin-bottom: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 6px 24px;
+    background-color: lightblue;
+    color: black;
+}

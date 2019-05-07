@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+    position: relative;
+    margin: 0;
+}
+
+.stub {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.egg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+path {
+    stroke-dasharray: 1200;
+    opacity: 1;
+    animation: animate 1.5s linear infinite alternate;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 1200;
+    }
+
+    10% {
+        opacity: 1;
+        fill: none;
+        stroke-dashoffset: 1200;
+    }
+
+    60% {
+        fill: rgba(255, 99, 71, 0);
+    }
+
+    100% {
+        opacity: 1;
+        fill: rgb(255, 99, 71);
+    }
+}
