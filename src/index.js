@@ -12,9 +12,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 // import App from './App';
 // import AppLession from './AppLession';
 // import AppLoadingData from './AppLoadingData';
-import AppForm from './AppForm';
+// import AppForm from './AppForm';
+import AppForm2 from './AppForm2';
 
-ReactDOM.render(<AppForm />, document.getElementById('root'));
+ReactDOM.render(<AppForm2 />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
